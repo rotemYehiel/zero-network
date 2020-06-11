@@ -1,0 +1,87 @@
+.navbar {
+    max-width: 240px;
+    height: 100vh;
+    background-color: $clr1;
+    padding-top: 32px;
+    padding-bottom: 32px;
+    .separator {
+        border-top: 0.1px solid white;
+        margin-right: 12px;
+        margin-left: 12px;
+    }
+    .network-prevention {
+        box-sizing: content-box;
+        width: 100%;
+        .sub-title-navbar {
+            padding-top: 29px;
+            margin-left: 4px;
+            line-height: 250%;
+            color: $clr3;
+            font-size: 11px;
+            font-family: Roboto;
+            // 
+            padding-left: 12px;
+            padding-right: 12px;
+        }
+    }
+    a {
+        margin-left: 5px;
+        font-size: 15px;
+        color: $clr2;
+        box-sizing: content-box;
+        border-left: 4px solid transparent;
+        padding-left: 20px;
+        &:hover {
+            background-color: $clr5;
+            border-radius: 0px 22px 22px 0px;
+            border-left: 4px solid $clr6;
+            width: 224px;
+        }
+    }
+    transition: all 200ms linear;
+}
+
+.thin-navbar {
+    max-width: 64px;
+    height: 100vh;
+    background-color: $clr1;
+    padding-top: 32px;
+    padding-bottom: 32px;
+    .separator {
+        border-top: 0.1px solid white;
+        margin-right: 12px;
+        margin-left: 12px;
+    }
+    .network-prevention {
+        box-sizing: content-box;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .sub-title-navbar {
+            padding-top: 29px;
+            line-height: 250%;
+            color: $clr3;
+            font-size: 11px;
+            font-family: Roboto;
+            padding-right: 12px;
+        }
+    }
+    .rest-of-links {
+        box-sizing: content-box;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    a {
+        box-sizing: content-box;
+        border-left: 4px solid transparent;
+        &:hover {
+            background-color: $clr5;
+            border-radius: 0px 22px 22px 0px;
+            border-left: 4px solid $clr6;
+        }
+    }
+    transition: all 200ms linear;
+}

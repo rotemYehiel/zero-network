@@ -1,0 +1,45 @@
+.link-preview {
+    margin-top: 12px;
+    margin-bottom: 12px;
+    display: flex;
+    .navbar-link {
+        .link-icon {
+            width: 40px;
+            height: 40px;
+        }
+        .settings-icon {
+            width: 23px;
+            height: 23px;
+        }
+        .active-link-point {
+            background-color: $clr6;
+            border-radius: 50%;
+            width: 8px;
+            height: 8px;
+            margin-left: 3px;
+            visibility: hidden;
+        }
+        &:active {
+            .active-link-point {
+                margin: 0;
+                visibility: visible;
+                margin-left: 3px;
+            }
+            .thin-navbar-mode-point {
+                visibility: visible;
+            }
+        }
+        .thin-navbar-mode-point {
+            visibility: hidden;
+            position: relative;
+            margin: 0;
+            background-color: $clr6;
+            border-radius: 50%;
+            width: 8px;
+            height: 8px;
+            align-self: flex-start;
+            right: 36px;
+            top: 5px;
+        }
+    }
+}
