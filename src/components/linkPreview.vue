@@ -16,13 +16,11 @@
       <Settings
         class="settings-icon"
         v-if="isSettings"
-        v-bind:style="[(isOpenNavbar)? {margin: '9.5px'}: {margin: '8.7px'}]"
+        :style="[(isOpenNavbar)? {margin: '9.5px'}: {margin: '8.7px'}]"
       />
 
-      <h3 v-bind:style="[(isOpenNavbar)? {display: 'block'}: {display: 'none'}]">{{link.title}}</h3>
-      <div
-        v-bind:class="{'thin-navbar-mode-point': !isOpenNavbar,'active-link-point': isOpenNavbar }"
-      ></div>
+      <h3 :style="[(isOpenNavbar)? {display: 'inline-block'}: {display: 'none'}]">{{link.title}}</h3>
+      <div :class="{'thin-navbar-mode-point': !isOpenNavbar,'active-link-point': isOpenNavbar }"></div>
     </router-link>
   </div>
 </template>

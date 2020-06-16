@@ -1,8 +1,19 @@
 .link-preview {
-    margin-top: 12px;
-    margin-bottom: 12px;
     display: flex;
+    // &:last-of-type {
+    //     margin-bottom: 20px;
+    // }
+    a {
+        &:visited {
+            .link-icon,
+            .settings-icon,
+            h3 {
+                filter: invert(24%) sepia(19%) saturate(538%) hue-rotate(201deg) brightness(95%) contrast(91%);
+            }
+        }
+    }
     .navbar-link {
+        text-overflow: ellipsis;
         .link-icon {
             width: 40px;
             height: 40px;
@@ -28,6 +39,12 @@
             .thin-navbar-mode-point {
                 visibility: visible;
             }
+        }
+        h3 {
+            font-weight: 500;
+            font-size: 15px;
+            // overflow-wrap: normal;
+            text-overflow: ellipsis;
         }
         .thin-navbar-mode-point {
             visibility: hidden;

@@ -1,34 +1,35 @@
 <template>
-  <section v-bind:class="{'navbar': isOpenNavbar, 'thin-navbar': !isOpenNavbar}">
-    <header @click="this.toggleNavbar">
-      <mainLogo v-if="isOpenNavbar" />
-      <smallLogo v-else />
-    </header>
+  <!-- <div class="navbar-wrapper" :style="[(isOpenNavbar)? {width: '240px'}: {width: '64px'}]"> -->
+  <div class="navbar-wrapper">
+    <section :class="{'navbar': isOpenNavbar, 'thin-navbar': !isOpenNavbar}">
+      <header @click="this.toggleNavbar">
+        <mainLogo v-if="isOpenNavbar" />
+        <smallLogo v-else />
+      </header>
 
-    <hr class="separator" />
+      <div class="box"></div>
 
-    <section class="network-prevention">
-      <h2 v-if="isOpenNavbar" class="sub-title-navbar">Network prevention</h2>
-      <h2 v-else class="sub-title-navbar">NP</h2>
-      <linkPreview
-        :isOpenNavbar="isOpenNavbar"
-        v-for="link in networkLinks"
-        :key="link.title"
-        :link="link"
-      />
+      <section class="network-prevention">
+        <h2 v-if="isOpenNavbar" class="sub-title-navbar">NETWORK PREVENTION</h2>
+        <h2 v-else class="sub-title-navbar">NP</h2>
+        <linkPreview
+          :isOpenNavbar="isOpenNavbar"
+          v-for="link in networkLinks"
+          :key="link.title"
+          :link="link"
+        />
+      </section>
+
+      <section class="rest-of-links">
+        <linkPreview
+          :isOpenNavbar="isOpenNavbar"
+          v-for="link in restoflinks"
+          :key="link.title"
+          :link="link"
+        />
+      </section>
     </section>
-
-    <hr class="separator" />
-
-    <section class="rest-of-links">
-      <linkPreview
-        :isOpenNavbar="isOpenNavbar"
-        v-for="link in restoflinks"
-        :key="link.title"
-        :link="link"
-      />
-    </section>
-  </section>
+  </div>
 </template>
 
 <script>
