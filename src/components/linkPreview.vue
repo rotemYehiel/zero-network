@@ -19,7 +19,8 @@
         :style="[(isOpenNavbar)? {margin: '9.5px'}: {margin: '8.7px'}]"
       />
 
-      <h3 :style="[(isOpenNavbar)? {display: 'inline-block'}: {display: 'none'}]">{{link.title}}</h3>
+      <!-- <h3 :style="[(isOpenNavbar)? {display: 'inline-block'}: {display: 'none'}]">{{link.title}}</h3> -->
+      <h3 v-if="isOpenNavbar">{{link.title}}</h3>
       <div :class="{'thin-navbar-mode-point': !isOpenNavbar,'active-link-point': isOpenNavbar }"></div>
     </router-link>
   </div>

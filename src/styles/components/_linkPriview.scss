@@ -1,17 +1,29 @@
 .link-preview {
     display: flex;
-    // &:last-of-type {
-    //     margin-bottom: 20px;
-    // }
     a {
-        &:visited {
-            .link-icon,
-            .settings-icon,
-            h3 {
-                filter: invert(24%) sepia(19%) saturate(538%) hue-rotate(201deg) brightness(95%) contrast(91%);
-            }
+        width: 100%;
+        margin-top: 12px;
+        font-size: 15px;
+        color: $clr2;
+        box-sizing: content-box;
+        border-left: 4px solid transparent;
+        padding-left: 8px;
+        &:hover {
+            background-color: $clr5;
+            border-radius: 0px 22px 22px 0px;
+            border-left: 4px solid $clr6;
+            width: 208px;
         }
     }
+    // a {
+    //     &:visited {
+    //         .link-icon,
+    //         .settings-icon,
+    //         h3 {
+    //             filter: invert(24%) sepia(19%) saturate(538%) hue-rotate(201deg) brightness(95%) contrast(91%);
+    //         }
+    //     }
+    // }
     .navbar-link {
         text-overflow: ellipsis;
         .link-icon {
