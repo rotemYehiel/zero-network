@@ -2,7 +2,7 @@
   <div class="link-preview">
     <router-link
       :to="`${link.path}`"
-      class="navbar-link flex align-center direction-row"
+      class="flex align-center direction-row"
       v-on:active="this.changeActiveMode"
     >
       <Prerequisites class="link-icon" v-if="isPrerequisites" />

@@ -1,6 +1,7 @@
 .link-preview {
     display: flex;
     a {
+        text-overflow: ellipsis;
         width: 100%;
         margin-top: 12px;
         font-size: 15px;
@@ -14,18 +15,6 @@
             border-left: 4px solid $clr6;
             width: 208px;
         }
-    }
-    // a {
-    //     &:visited {
-    //         .link-icon,
-    //         .settings-icon,
-    //         h3 {
-    //             filter: invert(24%) sepia(19%) saturate(538%) hue-rotate(201deg) brightness(95%) contrast(91%);
-    //         }
-    //     }
-    // }
-    .navbar-link {
-        text-overflow: ellipsis;
         .link-icon {
             width: 40px;
             height: 40px;
@@ -55,8 +44,9 @@
         h3 {
             font-weight: 500;
             font-size: 15px;
-            // overflow-wrap: normal;
             text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
         }
         .thin-navbar-mode-point {
             visibility: hidden;
@@ -71,4 +61,16 @@
             top: 5px;
         }
     }
+    // a {
+    //     &:visited {
+    //         .link-icon,
+    //         .settings-icon,
+    //         h3 {
+    //             filter: invert(24%) sepia(19%) saturate(538%) hue-rotate(201deg) brightness(95%) contrast(91%);
+    //         }
+    //     }
+    // }
+    // .navbar-link {
+    //     text-overflow: ellipsis;
+    // }
 }
