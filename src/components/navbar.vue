@@ -1,43 +1,35 @@
 <template>
-  <!-- <div class="navbar-wrapper" :style="[(isOpenNavbar)? {width: '240px'}: {width: '64px'}]"> -->
-  <div class="navbar-wrapper">
-    <section :class="{'navbar': isOpenNavbar, 'thin-navbar': !isOpenNavbar}">
-      <header @click="this.toggleNavbar">
-        <mainLogo v-if="isOpenNavbar" />
-        <smallLogo v-else />
-      </header>
+  <section :class="{'navbar': isOpenNavbar, 'thin-navbar': !isOpenNavbar}">
+    <header @click="this.toggleNavbar">
+      <svg-icon :svg-id="logo.icon" classes="import-icon" />
+    </header>
 
-      <div class="box"></div>
+    <div class="box"></div>
 
-      <section class="network-prevention">
-        <h2 v-if="isOpenNavbar" class="sub-title-navbar">NETWORK PREVENTION</h2>
-        <h2 v-else class="sub-title-navbar">NP</h2>
-        <linkPreview
-          :isOpenNavbar="isOpenNavbar"
-          v-for="link in networkLinks"
-          :key="link.title"
-          :link="link"
-        />
-      </section>
-
-      <section class="rest-of-links">
-        <linkPreview
-          :isOpenNavbar="isOpenNavbar"
-          v-for="link in restoflinks"
-          :key="link.title"
-          :link="link"
-        />
-      </section>
+    <section class="network-prevention">
+      <h2 v-if="isOpenNavbar" class="sub-title-navbar">NETWORK PREVENTION</h2>
+      <h2 v-else class="sub-title-navbar">NP</h2>
+      <linkPreview
+        :isOpenNavbar="isOpenNavbar"
+        v-for="link in networkLinks"
+        :key="link.title"
+        :link="link"
+      />
     </section>
-  </div>
-</template>
 
+    <section class="rest-of-links">
+      <linkPreview
+        :isOpenNavbar="isOpenNavbar"
+        v-for="link in restoflinks"
+        :key="link.title"
+        :link="link"
+      />
+    </section>
+  </section>
+</template>
 <script>
 import linkPreview from "./linkPreview";
-
-// icons cmps
-import mainLogo from "../components/icons/mainLogo";
-import smallLogo from "../components/icons/smallLogo";
+import svgIcon from "./svg-icon";
 
 export default {
   name: "navnar",
@@ -54,7 +46,7 @@ export default {
       return this.$store.getters.logos;
     },
     logo() {
-      return this.logos[0];
+      return this.isOpenNavbar ? this.logos[0] : this.logos[1];
     },
     networkLinks() {
       const links = this.links.filter(link => {
@@ -76,8 +68,7 @@ export default {
   },
   components: {
     linkPreview,
-    mainLogo,
-    smallLogo
+    svgIcon
   }
 };
 </script>

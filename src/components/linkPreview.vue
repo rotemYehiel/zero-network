@@ -1,64 +1,35 @@
 <template>
   <div class="link-preview">
-    <router-link
-      :to="`${link.path}`"
-      class="flex align-center direction-row"
-      v-on:active="this.changeActiveMode"
-    >
-      <Prerequisites class="link-icon" v-if="isPrerequisites" />
-      <DryRun class="link-icon" v-if="isDryRun" />
-      <Prevention class="link-icon" v-if="isPrevention" />
-      <Dashboard class="link-icon" v-if="isDashboard" />
-      <Assets class="link-icon" v-if="isAssets" />
-      <Activities class="link-icon" v-if="isActivities" />
-      <Detections class="link-icon" v-if="isDetections" />
-      <ChangeLog class="link-icon" v-if="isChangeLog" />
-      <Settings
-        class="settings-icon"
-        v-if="isSettings"
-        :style="[(isOpenNavbar)? {margin: '9.5px'}: {margin: '8.7px'}]"
-      />
-
-      <!-- <h3 :style="[(isOpenNavbar)? {display: 'inline-block'}: {display: 'none'}]">{{link.title}}</h3> -->
+    <router-link :to="`${link.path}`" class="flex align-center direction-row">
+      <svg-icon :svg-id="link.icon" classes="import-icon" />
+      <div v-if="link.extensions">
+        <svg-icon
+          v-for="extension in link.extensions"
+          :key="extension.name"
+          :svg-id="extension.name"
+          class="icon-extension"
+        />
+      </div>
       <h3 v-if="isOpenNavbar">{{link.title}}</h3>
-      <div :class="{'thin-navbar-mode-point': !isOpenNavbar,'active-link-point': isOpenNavbar }"></div>
+      <div
+        v-if="link.isActivePoint"
+        :class="{'thin-navbar-mode-point': !isOpenNavbar,'active-link-point': isOpenNavbar }"
+      ></div>
     </router-link>
   </div>
 </template>
 
 <script>
-import Prerequisites from "./icons/Prerequisites";
-import DryRun from "./icons/DryRun";
-import Prevention from "./icons/Prevention";
-//
-import Dashboard from "./icons/Dashboard";
-import Assets from "./icons/Assets";
-import Activities from "./icons/Activities";
-import Detections from "./icons/Detections";
-import ChangeLog from "./icons/ChangeLog";
-import Settings from "./icons/Settings";
+import svgIcon from "./svg-icon";
 
 export default {
   name: "linkPreview",
-  data() {
-    return {
-      isActiveMode: false
-    };
-  },
   props: {
     link: Object,
     isOpenNavbar: Boolean
   },
   components: {
-    Prerequisites,
-    DryRun,
-    Prevention,
-    Dashboard,
-    Assets,
-    Activities,
-    Detections,
-    ChangeLog,
-    Settings
+    svgIcon
   },
   computed: {
     isPrevention() {
@@ -123,12 +94,6 @@ export default {
       } else {
         return false;
       }
-    }
-  },
-  methods: {
-    changeActiveMode() {
-      this.isActiveMode = !this.isActiveMode;
-      console.log("r u active?:", this.isActiveMode);
     }
   }
 };

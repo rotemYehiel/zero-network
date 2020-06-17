@@ -15,62 +15,73 @@
             border-left: 4px solid $clr6;
             width: 208px;
         }
-        .link-icon {
+        .import-icon {
             width: 40px;
             height: 40px;
-        }
-        .settings-icon {
-            width: 23px;
-            height: 23px;
-        }
-        .active-link-point {
-            background-color: $clr6;
-            border-radius: 50%;
-            width: 8px;
-            height: 8px;
-            margin-left: 3px;
-            visibility: hidden;
-        }
-        &:active {
-            .active-link-point {
-                margin: 0;
-                visibility: visible;
-                margin-left: 3px;
-            }
-            .thin-navbar-mode-point {
-                visibility: visible;
+            .Settings {
+                transform: translate(8px, 8px);
             }
         }
-        h3 {
-            font-weight: 500;
-            font-size: 15px;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            overflow: hidden;
-        }
-        .thin-navbar-mode-point {
-            visibility: hidden;
-            position: relative;
-            margin: 0;
-            background-color: $clr6;
-            border-radius: 50%;
-            width: 8px;
-            height: 8px;
-            align-self: flex-start;
-            right: 36px;
-            top: 5px;
+        .icon-extension {
+            left: 0;
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            overflow-x: overlay;
+            &:first-child {
+                z-index: 2;
+            }
+            .VR {
+                width: 10px;
+                height: 5px;
+                transform: translate(27px, 0px);
+                z-index: 1;
+            }
+            .VRwrapper {
+                transform: translate(20.8px, -4.5px);
+            }
+            .Circle {
+                width: 7px;
+                height: 7px;
+                transform: translate(26.4px, -4.5px);
+            }
         }
     }
-    // a {
-    //     &:visited {
-    //         .link-icon,
-    //         .settings-icon,
-    //         h3 {
-    //             filter: invert(24%) sepia(19%) saturate(538%) hue-rotate(201deg) brightness(95%) contrast(91%);
-    //         }
-    //     }
-    // }
-    // .navbar-link {
-    //     text-overflow: ellipsis;
-    // }
+    .active-link-point {
+        background-color: $clr6;
+        border-radius: 50%;
+        width: 8px;
+        height: 8px;
+        margin-left: 3px;
+        visibility: visible;
+    }
+    &:active {
+        .active-link-point {
+            margin: 0;
+            visibility: visible;
+            margin-left: 3px;
+        }
+        .thin-navbar-mode-point {
+            visibility: visible;
+        }
+    }
+    h3 {
+        font-weight: 500;
+        font-size: 15px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+    .thin-navbar-mode-point {
+        visibility: visible;
+        position: relative;
+        margin: 0;
+        background-color: $clr6;
+        border-radius: 50%;
+        width: 8px;
+        height: 8px;
+        align-self: flex-start;
+        right: 36px;
+        top: 5px;
+    }
 }
